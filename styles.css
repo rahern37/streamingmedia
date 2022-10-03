@@ -1,102 +1,443 @@
-html {
-    background-color: #020659;
-    font-family: Raleway;
-}
-
-ul {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height .2s ease-out;
-}
-
-label {
-    cursor: pointer;
-    display: inline-block;
-    padding: 28px 20px;
-    position: relative;
-    user-select: none;
-}
-
-label span {
-    background-color: #ffffff;
-    display: block;
-    height: 2px;
-    position: relative;
-    transition: background-color .2s ease-out;
-    width: 18px;
-}
-
-label span:before,
-label span:after {
-    background: #ffffff;
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all .2s ease-out;
-    width: 100%;
-}
-
-label span:before {
-    top: 5px;
-}
-
-label span:after {
-    top: -5px;
-}
-
-input {
-    display: none;
-}
-
-input:checked~ul {
-    max-height: 500px;
-}
-
-input:checked~label span {
-    background: transparent;
-}
-
-input:checked~label span:before {
-    transform: rotate(-45deg);
-}
-
-input:checked~label span:after {
-    transform: rotate(45deg);
-}
-
-input:checked~label:not(.steps) span:before,
-input:checked~label:not(.steps) span:after {
-    top: 0;
-}
-
-@media screen and (min-width:834px) {
-    ul {
-        overflow: visible;
-        position: absolute;
-        top: 0;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    }
-    label span,
-    input {
-        display: none;
-    }
-}
-
-audio {
-    position: relative;
-}
-
-audio::-webkit-media-controls-mute-button {
-    background-color: #ffffff;
-}
-
-audio::-webkit-media-controls-play-button {
-    background-color: #ffffff;
-    border-radius: 50%;
-}
-
-audio::-webkit-media-controls-enclosure {
-    background: rgba(255, 255, 255, .5);
-}
+                    /*Global styles*/
+                    
+                    html {
+                        background-color: #020659;
+                        color: #ffffff;
+                    }
+                    
+                    body {
+                        min-width: 375px;
+                        margin: 0 auto;
+                        font-family: 'Raleway', sans-serif;
+                    }
+                    
+                    header,
+                    footer {
+                        width: 100%;
+                    }
+                    
+                    header {
+                        background: linear-gradient(180deg, #2104D9, #020659);
+                        padding: 60px 25px 5px 25px;
+                    }
+                    
+                    main {
+                        background-color: #ffffff;
+                    }
+                    
+                    h1,
+                    h2 {
+                        font-family: raleway, sans-serif;
+                        font-weight: 700;
+                        font-style: normal;
+                    }
+                    
+                    h1,
+                    h3 {
+                        text-transform: uppercase;
+                        font-weight: bold;
+                    }
+                    
+                    #trending dt {
+                        font-style: italic;
+                    }
+                    
+                    dl {
+                        display: flex;
+                    }
+                    
+                    dt {
+                        font-family: raleway, sans-serif;
+                        font-weight: 200;
+                        font-style: normal;
+                        padding-right: 5px;
+                    }
+                    
+                    dd {
+                        font-family: raleway, sans-serif;
+                        font-weight: 400;
+                        font-style: normal;
+                        margin: 0;
+                    }
+                    
+                    #playlists h3,
+                    #curated h3,
+                    #trending h3,
+                    footer {
+                        font-family: raleway, sans-serif;
+                        font-weight: 700;
+                        font-style: normal;
+                    }
+                    
+                    #trending dd,
+                    #trending dt,
+                    #trending dl,
+                    #trending h3,
+                    #trending h2 {
+                        color: #590242;
+                    }
+                    
+                    #playlists h2 {
+                        background-color: #ffffff;
+                        color: #590242;
+                        margin-top: -1px;
+                    }
+                    
+                    #curated h2 {
+                        background-color: #FFFFFF;
+                        color: #590242;
+                        margin-top: -1px;
+                    }
+                    
+                    #footer {
+                        background-color: #FFFFFF;
+                        color: #590242;
+                    }
+                    
+                    nav {
+                        width: 375px;
+                        height: 60px;
+                        position: absolute;
+                        top: 0;
+                        z-index: 1;
+                        background-color: #2104D9;
+                        text-transform: uppercase;
+                    }
+                    
+                    ul {
+                        list-style-type: none;
+                        text-align: center;
+                        padding: 0;
+                        background-color: #2104D9;
+                        margin: 0;
+                        overflow: hidden;
+                        max-height: 0;
+                        transition: max-height .2s ease-out;
+                    }
+                    
+                    li a {
+                        display: block;
+                        padding-top: 20px 20px;
+                        text-decoration: none;
+                    }
+                    
+                    [href="home"] {
+                        text-transform: capitalize;
+                        position: absolute;
+                        top: 0;
+                        font-weight: bold;
+                    }
+                    
+                    nav a {
+                        text-decoration: none;
+                        color: #ffffff;
+                        text-transform: uppercase;
+                        margin: 10px;
+                    }
+                    
+                    a:hover,
+                    input:hover {
+                        background-color: #590242;
+                    }
+                    
+                    #curated .scroll div {
+                        background-color: #020873;
+                    }
+                    
+                    .more {
+                        background-color: #590242;
+                        color: #FFFFFF;
+                        text-decoration: none;
+                        width: 150px;
+                        border-radius: 5px;
+                        padding: 10px;
+                        text-align: center;
+                        font-weight: bold;
+                    }
+                    
+                    .more:hover {
+                        background-color: #020659;
+                    }
+                    
+                    .morebackground {
+                        background: #FFFFFF;
+                    }
+                    
+                    audio {
+                        position: absolute;
+                        bottom: 160px;
+                        left: 5px;
+                    }
+                    
+                    label {
+                        cursor: pointer;
+                        display: inline-block;
+                        padding: 28px 20px;
+                        position: relative;
+                        user-select: none;
+                    }
+                    
+                    label span {
+                        background-color: #ffffff;
+                        display: block;
+                        height: 2px;
+                        position: relative;
+                        transition: background-color .2s ease-out;
+                        width: 18px;
+                    }
+                    
+                    label span:before,
+                    label span:after {
+                        background: #ffffff;
+                        content: '';
+                        display: block;
+                        height: 100%;
+                        position: absolute;
+                        transition: all .2s ease-out;
+                        width: 100%;
+                    }
+                    
+                    label span:before {
+                        top: 5px;
+                    }
+                    
+                    label span:after {
+                        top: -5px;
+                    }
+                    
+                    input {
+                        display: none;
+                    }
+                    
+                    input:checked~ul {
+                        max-height: 500px;
+                    }
+                    
+                    input:checked~label span {
+                        background: transparent;
+                    }
+                    
+                    input:checked~label span:before {
+                        transform: rotate(-45deg);
+                    }
+                    
+                    input:checked~label span:after {
+                        transform: rotate(45deg);
+                    }
+                    
+                    input:checked~label:not(.steps) span:before,
+                    input:checked~label:not(.steps) span:after {
+                        top: 0;
+                    }
+                    
+                    #playlists section {
+                        text-align: center;
+                        padding: 10px;
+                        background-color: #0D8DFB;
+                    }
+                    
+                    #playlists {
+                        background-color: #2699FB;
+                    }
+                    
+                    #playlists .scroll div {
+                        background-color: #0D8DFB;
+                    }
+                    
+                    #curated {
+                        background-color: #2104D9;
+                    }
+                    
+                    #curated section {
+                        background-color: #020873;
+                        text-align: center;
+                        padding: 10px;
+                    }
+                    
+                    footer {
+                        text-align: center;
+                        background-color: #FFFFFF;
+                        color: #590242;
+                        font-weight: bold;
+                        padding-bottom: 10px;
+                    }
+                    
+                    #trending ::-webkit-scrollbar {
+                        width: 15px;
+                    }
+                    
+                    #trending ::-webkit-scrollbar-track {
+                        box-shadow: inset 0 0 15px #590242;
+                    }
+                    
+                    #trending ::-webkit-scrollbar-thumb {
+                        background: #590242;
+                        border-radius: 5px;
+                    }
+                    
+                    #trending ::-webkit-scrollbar-thumb:hover {
+                        background: #020659;
+                    }
+                    
+                    #playlists ::-webkit-scrollbar,
+                    #curated ::-webkit-scrollbar {
+                        width: 15px;
+                    }
+                    
+                    #playlists ::-webkit-scrollbar-track,
+                    #curated ::-webkit-scrollbar-track {
+                        box-shadow: inset 0 0 15px #020659;
+                    }
+                    
+                    #playlists ::-webkit-scrollbar-thumb,
+                    #curated ::-webkit-scrollbar-thumb {
+                        background: #020659;
+                        border-radius: 5px;
+                    }
+                    
+                    #playlists ::-webkit-scrollbar-thumb:hover,
+                    #curated ::-webkit-scrollbar-thumb:hover {
+                        background: #ffffff;
+                    }
+                    
+                    audio {
+                        position: relative;
+                    }
+                    
+                    audio::-webkit-media-controls-mute-button {
+                        background-color: #ffffff;
+                    }
+                    
+                    audio::-webkit-media-controls-play-button {
+                        background-color: #ffffff;
+                        border-radius: 50%;
+                    }
+                    
+                    audio::-webkit-media-controls-enclosure {
+                        background: rgba(255, 255, 255, .5);
+                    }
+                    
+                    .scroll {
+                        display: grid;
+                        grid-template-columns: repeat(5, 1fr);
+                        overflow-x: auto;
+                        overflow-y: hidden;
+                    }
+                    
+                    .scroll section {
+                        position: relative;
+                        margin: 10px;
+                    }
+                    
+                    .scroll div h3 {
+                        margin: 0;
+                    }
+                    
+                    .scroll div {
+                        position: absolute;
+                        top: 251px;
+                        background-color: rgba(255, 255, 255, .75);
+                        padding: 5px;
+                        height: 50px;
+                        width: 350px;
+                    }
+                    
+                    @media screen and (min-width:834px) {
+                        body {
+                            width: 834px;
+                        }
+                        label span,
+                        input {
+                            display: none;
+                        }
+                        nav {
+                            width: 834px;
+                        }
+                        ul {
+                            overflow: visible;
+                            position: absolute;
+                            top: 0;
+                            width: 834px;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                            align-items: center;
+                        }
+                        li {
+                            padding: 0;
+                            margin: 0;
+                        }
+                        li a,
+                        [href="home"] {
+                            box-sizing: border-box;
+                            padding: 10px;
+                        }
+                        [href="home"] {
+                            position: static;
+                        }
+                        nav a {
+                            display: block;
+                        }
+                        main {
+                            display: grid;
+                            grid-template-columns: 417px 417px;
+                        }
+                        #trending {
+                            width: 834px;
+                            grid-column: 1/3;
+                        }
+                        #playlists {
+                            width: 417px;
+                            grid-column: 1/2;
+                        }
+                        #curated {
+                            width: 417px;
+                            grid-column: 2/3;
+                        }
+                        #playlists section {
+                            width: 360px;
+                            height: 200px;
+                        }
+                        #playlists img,
+                        #curated img {
+                            display: flex;
+                            justify-content: flex-start;
+                        }
+                        #playlists .scroll div,
+                        #curated .scroll div {
+                            position: absolute;
+                            top: 10px;
+                            height: 106px;
+                            width: 209px;
+                            margin-left: 147px;
+                            border-radius: 5px;
+                        }
+                        #playlists .scroll dl,
+                        #curated .scroll dl {
+                            display: flex;
+                            flex-wrap: wrap;
+                        }
+                        #playlists .scroll dt,
+                        #curated .scroll dl {
+                            margin-left: 55px;
+                        }
+                        #playlists .scroll,
+                        #curated .scroll {
+                            overflow-x: hidden;
+                            overflow-y: auto;
+                            grid-template-rows: repeat(5, 145px);
+                            height: 400px;
+                            grid-template-columns: 417px;
+                            row-gap: 20px;
+                        }
+                        #curated section {
+                            width: 360px;
+                            height: 120px;
+                        }
+                        #curated .scroll dl dd {
+                            margin-left: -38px;
+                        }
+                        .more {
+                            float: right;
+                            margin: 10px 32px 30px 0;
+                        }
+                    }
